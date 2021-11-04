@@ -1,0 +1,43 @@
+spring:
+  mail:
+    host: smtp.163.com
+    username: cao1423941511@163.com
+    password: HXMGQJXGSTBSVMOT
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  datasource:
+    url: jdbc:mysql://192.168.71.10:3306/ec
+    username: cao
+    password: zZXLFUPplgyxbKequwteZpwUznChsY2r
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 60
+      connection-timeout: 60000
+      idle-timeout: 60000
+      validation-timeout: 3000
+      max-lifetime: 60000
+      login-timeout: 5
+      minimum-idle: 10
+
+silkroadapiaccesskey:
+  accessKeyID: vLBJs2cq2x5mOfCJ
+  accessKeySecret: UfwGAtFvVMvN2s9ijswPTo0x6f7BRH
+
+microservices:
+  auth:
+    base: https://open-api.xjjk.com/authority
+  wms:
+    base: https://open-api.xjjk.com/wms/
+
+carrierservices:
+  sf:
+    base: https://sfapi.sf-express.com/std/service
+
+
+server:
+  port: 18080
