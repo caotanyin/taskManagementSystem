@@ -28,6 +28,7 @@ public class SilkroadServiceImpl implements SilkroadService {
 
     /**
      * 调用鉴权接口获取Token
+     *
      * @return
      */
     @Override
@@ -55,6 +56,7 @@ public class SilkroadServiceImpl implements SilkroadService {
 
     /**
      * 根据SkuCode及传入的Token试试查询当前丝路库存
+     *
      * @param token
      * @param skuCode
      * @return
@@ -63,7 +65,7 @@ public class SilkroadServiceImpl implements SilkroadService {
     public int queryAvailableQtyByInterface(String token, String skuCode) {
         GetAvailableQtyReqDTO getAvailableQtyReqDTO = new GetAvailableQtyReqDTO();
         getAvailableQtyReqDTO.setSkuCode(skuCode);
-        Result<GetAvailableQtyRespDTO> resp = omsFeignClient.availableStock(token,getAvailableQtyReqDTO);
+        Result<GetAvailableQtyRespDTO> resp = omsFeignClient.availableStock(token, getAvailableQtyReqDTO);
         if (ParamUtil.objectEmpty(resp)) {
             log.info("丝路调用查询库存查询接口失败");
             return 0;
@@ -72,8 +74,8 @@ public class SilkroadServiceImpl implements SilkroadService {
             log.info("丝路调用查询库存查询接口失败:{}", resp.getMsg());
             return 0;
         }
-        if(ParamUtil.objectEmpty(resp.getData())){
-            log.info("丝路调用查询库存查询接口失败无数据:{}",skuCode);
+        if (ParamUtil.objectEmpty(resp.getData())) {
+            log.info("丝路调用查询库存查询接口失败无数据:{}", skuCode);
             return 0;
         }
         return resp.getData().getQty();

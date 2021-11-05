@@ -19,7 +19,9 @@ public class DbDataServiceImpl implements DbDataService {
     }
 
     @Override
-    public int queryOverSaleBySQL() { return goodsStockShopMapper.getOverSaleSkuBySQL(); }
+    public int queryOverSaleBySQL() {
+        return goodsStockShopMapper.getOverSaleSkuBySQL();
+    }
 
     @Override
     public List<GoodsStockShopVO> getSku() {

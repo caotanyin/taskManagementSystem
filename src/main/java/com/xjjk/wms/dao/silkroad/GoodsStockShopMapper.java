@@ -5,7 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Mapper
@@ -13,6 +12,7 @@ import java.util.List;
 public interface GoodsStockShopMapper {
     /**
      * 查询丝路SKU的可用总量
+     *
      * @param skuCode
      * @return
      */
@@ -24,6 +24,7 @@ public interface GoodsStockShopMapper {
 
     /**
      * 获取需要比对数量的SKU
+     *
      * @return
      */
     @Select("select SkuCode " +

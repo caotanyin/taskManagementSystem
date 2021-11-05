@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
-public class GetTokenRespDTO  {
+public class GetTokenRespDTO {
 
     private String Token;
 }

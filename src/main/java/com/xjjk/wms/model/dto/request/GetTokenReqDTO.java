@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @Data
 @JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
-public class GetTokenReqDTO implements Serializable{
+public class GetTokenReqDTO implements Serializable {
     private static final long serialVersionUID = -1L;
     /**
      * 第三方平台公钥

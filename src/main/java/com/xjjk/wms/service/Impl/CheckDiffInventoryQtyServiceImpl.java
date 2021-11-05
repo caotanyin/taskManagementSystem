@@ -27,10 +27,10 @@ public class CheckDiffInventoryQtyServiceImpl implements com.xjjk.wms.service.Ch
         String token = silkroadService.auth();
         List<GoodsStockShopVO> list = dbDataService.getSku();
         List<SkuDifferentInventoryQtyVO> skuDifferentInventoryQtyVOList = new ArrayList<>();
-        for(GoodsStockShopVO goodsStockShopVO : list){
-            int wmsInventery = silkroadService.queryAvailableQtyByInterface(token,goodsStockShopVO.getSkuCode());
+        for (GoodsStockShopVO goodsStockShopVO : list) {
+            int wmsInventery = silkroadService.queryAvailableQtyByInterface(token, goodsStockShopVO.getSkuCode());
             int srInventory = dbDataService.queryAvailableQtyBySql(goodsStockShopVO.getSkuCode());
-            if(wmsInventery != srInventory){
+            if (wmsInventery != srInventory) {
                 SkuDifferentInventoryQtyVO skuDifferentInventoryQtyVO = new SkuDifferentInventoryQtyVO();
                 skuDifferentInventoryQtyVO.setSku(goodsStockShopVO.getSkuCode());
                 skuDifferentInventoryQtyVO.setWmsInventory(wmsInventery);

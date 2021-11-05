@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Data
 public class GoodsStockShopVO {
-    private Integer id ;
+    private Integer id;
     private Integer shopId;
     private String skuCode;
     private Integer availableStock;

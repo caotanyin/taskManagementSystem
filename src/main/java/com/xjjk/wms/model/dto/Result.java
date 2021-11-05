@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Data
 @JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
-public class Result<T>  {
+public class Result<T> {
     /**
      * 响应码
      */
