@@ -10,8 +10,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Component
@@ -20,6 +18,9 @@ public class TaskUtil {
 
     @Autowired
     private CheckDiffInventoryQtyService checkDiffInventoryQtyService;
+
+    @Autowired
+    private CheckOverSaleSkuService checkOverSaleSkuService;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -48,5 +49,25 @@ public class TaskUtil {
             mailSender.send(message);
         }
         log.info("核对库存任务结束...");
+    }
+
+    @Scheduled(cron = "0 0/3 8-22 * * ?")
+    public void doCheckWmsFtpServerOnLine() {
+        log.info("检查服务器在线是否任务开始...");
+        String hostname = "172.19.10.249";
+        int port = 21 ;
+        boolean onLineFlag = NetUtil.isOnline(hostname,port);
+        if(!onLineFlag){
+            String skuStr = "";
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom("cao1423941511@163.com");
+            message.setTo("1423941511@qq.com");
+            message.setSubject("主题：服务器掉线");
+            message.setText(hostname+"服务器已掉线！！！\n" + skuStr);
+            mailSender.send(message);
+        }else{
+            log.info("{}服务器在线...",hostname);
+        }
+        log.info("检查服务器在线是否任务结束...");
     }
 }
