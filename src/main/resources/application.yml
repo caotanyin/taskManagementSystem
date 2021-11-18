@@ -37,7 +37,7 @@ microservices:
 carrierservices:
   sf:
     base: https://sfapi.sf-express.com/std/service
-
-
+  db:
+    base: http://dpsanbox.deppon.com/sandbox-web/standard-order
 server:
   port: 18080
